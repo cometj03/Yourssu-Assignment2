@@ -23,6 +23,15 @@
         <action
             android:id="@+id/action_registerFragment2_to_registerFragment1"
             app:destination="@id/registerFragment1" />
+        <action
+            android:id="@+id/action_registerFragment2_to_registerFragment3"
+            app:destination="@id/registerFragment3" />
     </fragment>
+
+    <fragment
+        android:id="@+id/registerFragment3"
+        android:name="com.cometj.yourssu_assignment.RegisterFragment3"
+        android:label="RegisterFragment3"
+        tools:layout="@layout/fragment_register3"/>
 
 </navigation>

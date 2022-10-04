@@ -4,26 +4,57 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <data>
+        <import type="com.yourssu.design.system.atom.BoxButton" />
+
+        <variable
+            name="viewModel"
+            type="com.cometj.yourssu_assignment.RegisterViewModel" />
+    </data>
+
     <androidx.constraintlayout.widget.ConstraintLayout
-        tools:context=".RegisterFragment1"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        tools:context=".RegisterFragment1">
 
-        <TextView
-            android:id="@+id/textView"
+        <com.yourssu.design.system.atom.Text
+            android:id="@+id/text3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Hello Register Fragment1!"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="20dp"
+            android:text="숭실대학교 메일을 입력해주세요."
+            android:textColor="@color/textPrimary"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:typo="title3" />
 
-        <Button
+        <com.yourssu.design.system.atom.SuffixTextField
+            android:id="@+id/suffixTextField"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="20dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/text3"
+            app:suffixLabelText="@{`@soongsil.ac.kr`}" />
+
+        <com.yourssu.design.system.atom.BoxButton
             android:id="@+id/btn_next"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Next"
+            app:isDisabled="@{false}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView" />
+            app:rounding="@{0}"
+            app:text="@{`다음`}"
+            app:type="@{BoxButton.FILLED}" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

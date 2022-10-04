@@ -7,6 +7,8 @@
 
     <data>
         <import type="com.yourssu.design.system.foundation.Icon" />
+        <import type="com.yourssu.design.system.atom.IconView" />
+
         <variable
             name="viewModel"
             type="com.cometj.yourssu_assignment.RegisterViewModel" />
@@ -16,11 +18,11 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+        <!-- TODO TopBar 제대로 안 나옴 -->
         <com.yourssu.design.system.component.TopBar
             android:id="@+id/topBar"
             android:layout_width="match_parent"
             android:layout_height="56dp"
-            app:endRightButtonEnabled="@{true}"
             app:endRightIcon="@{Icon.ic_x_line}"
             app:title="@{`회원가입`}"
             app:layout_constraintEnd_toEndOf="parent"
@@ -32,7 +34,6 @@
             android:name="androidx.navigation.fragment.NavHostFragment"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            app:defaultNavHost="true"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
