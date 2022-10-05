@@ -39,23 +39,27 @@
             android:layout_marginStart="20dp"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="20dp"
+            android:inputType="textPassword"
+            android:onTextChanged="@{viewModel.onPasswordTextChangeListener}"
+            app:helperLabelText="@{`숫자와 영문자 조합으로 8자 이상 입력해 주세요.`}"
+            app:isPositive="@{viewModel.isPasswordValid &amp;&amp; !viewModel.password.isEmpty()}"
+            app:isNegative="@{!viewModel.isPasswordValid &amp;&amp; !viewModel.password.isEmpty()}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/txt_title" />
 
-
         <com.yourssu.design.system.atom.BoxButton
             android:id="@+id/btn_next"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
             app:rounding="@{0}"
             app:text="@{`다음`}"
             app:type="@{BoxButton.FILLED}"
-            app:isDisabled="@{false}"/>
+            app:isDisabled="@{!viewModel.isPasswordValid}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

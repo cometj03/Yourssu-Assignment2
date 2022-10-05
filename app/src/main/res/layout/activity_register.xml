@@ -8,6 +8,7 @@
     <data>
         <import type="com.yourssu.design.system.foundation.Icon" />
         <import type="com.yourssu.design.system.atom.IconView" />
+        <import type="android.view.View" />
 
         <variable
             name="viewModel"
@@ -18,16 +19,45 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <!-- TODO TopBar 제대로 안 나옴 -->
         <com.yourssu.design.system.component.TopBar
             android:id="@+id/topBar"
             android:layout_width="match_parent"
             android:layout_height="56dp"
-            app:endRightIcon="@{Icon.ic_x_line}"
-            app:title="@{`회원가입`}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent">
+
+            <com.yourssu.design.system.atom.Text
+                android:id="@+id/text4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="회원가입"
+                android:textColor="@color/textPrimary"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.5"
+                app:typo="subtitle2" />
+
+            <ImageButton
+                android:id="@+id/btn_title_cancel"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_marginEnd="20dp"
+                android:src="@drawable/ic_x_line"
+                android:visibility="@{viewModel.currentPosition > 1 ? View.VISIBLE : View.GONE}"
+                android:clickable="true"
+                android:focusable="true"
+                android:background="@null"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.5"
+                app:tint="@color/buttonNormal" />
+
+        </com.yourssu.design.system.component.TopBar>
 
         <androidx.fragment.app.FragmentContainerView
             android:id="@+id/nav_host_fragment"

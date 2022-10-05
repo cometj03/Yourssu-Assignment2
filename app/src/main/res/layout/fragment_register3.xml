@@ -39,12 +39,12 @@
             <com.yourssu.design.system.atom.ListItem
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:text="@{`email: test`}" />
+                app:text="@{`email: ` + viewModel.email + `@soongsil.ac.kr`}" />
 
             <com.yourssu.design.system.atom.ListItem
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:text="@{`pw: test`}" />
+                app:text="@{`password: ` + viewModel.password}" />
 
         </com.yourssu.design.system.component.List>
 
