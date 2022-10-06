@@ -33,14 +33,13 @@
             app:typo="title3" />
 
         <com.yourssu.design.system.atom.SimpleTextField
-            android:id="@+id/simpleTextField"
+            android:id="@+id/et_password"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="20dp"
             android:inputType="textPassword"
-            android:onTextChanged="@{viewModel.onPasswordTextChangeListener}"
             app:helperLabelText="@{`숫자와 영문자 조합으로 8자 이상 입력해 주세요.`}"
             app:isPositive="@{viewModel.isPasswordValid &amp;&amp; !viewModel.password.isEmpty()}"
             app:isNegative="@{!viewModel.isPasswordValid &amp;&amp; !viewModel.password.isEmpty()}"

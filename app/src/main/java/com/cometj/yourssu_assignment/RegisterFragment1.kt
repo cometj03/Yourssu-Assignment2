@@ -14,6 +14,7 @@ class RegisterFragment1 : Fragment(R.layout.fragment_register1) {
     private var _binding: FragmentRegister1Binding? = null
     private val binding get() = _binding!!
 
+    // Activity와 ViewModel을 공유하기 위해 `activityViewModels()`사용
     private val viewModel: RegisterViewModel by activityViewModels()
 
     override fun onCreateView(
@@ -27,7 +28,6 @@ class RegisterFragment1 : Fragment(R.layout.fragment_register1) {
 
         binding.btnNext.setOnClickListener {
             viewModel.goToNextPage()
-            findNavController().navigate(R.id.action_registerFragment1_to_registerFragment2)
         }
         return binding.root
     }

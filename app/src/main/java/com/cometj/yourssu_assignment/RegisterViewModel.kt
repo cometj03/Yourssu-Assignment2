@@ -7,14 +7,17 @@ import com.yourssu.design.undercarriage.base.TextField
 import java.util.regex.Pattern
 
 class RegisterViewModel : ViewModel() {
-    private val _currentPosition = MutableLiveData(1)
+
+    private val _currentPosition = MutableLiveData(0)
     val currentPosition: LiveData<Int> = _currentPosition
 
     fun goToNextPage() {
         _currentPosition.value = _currentPosition.value?.let { it + 1 }
     }
     fun goToFirstPage() {
-        _currentPosition.value = 1
+        _currentPosition.value = 0
+        _email.value = ""
+        _password.value = ""
     }
 
     private val _email = MutableLiveData("")
@@ -32,17 +35,9 @@ class RegisterViewModel : ViewModel() {
         }
     }
 
-    val onPasswordTextChangeListener = object : TextField.OnTextChanged {
-        override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
-            s?.toString()?.let {
-                _password.value = it
-                _isPasswordValid.value = validate(it)
-            }
-        }
-    }
-
-    private fun validate(password: String): Boolean {
+    fun validatePassword(password: String) {
         val regex = "^(?=.*[A-Za-z])(?=.*\\d)[!-~₩]{8,100}$"
-        return Pattern.matches(regex, password)
+        _password.value = password
+        _isPasswordValid.value = Pattern.matches(regex, password)
     }
 }

@@ -14,6 +14,12 @@ class RegisterActivity : AppCompatActivity() {
 
     private val viewModel: RegisterViewModel by viewModels()
 
+    private val fragmentIds: List<Int> = listOf(
+        R.id.registerFragment1,
+        R.id.registerFragment2,
+        R.id.registerFragment3
+    )
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_register)
@@ -23,8 +29,10 @@ class RegisterActivity : AppCompatActivity() {
 
         binding.btnTitleCancel.setOnClickListener {
             viewModel.goToFirstPage()
-            val navHostFragment = supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
-            navHostFragment.navController.navigate(R.id.registerFragment1)
+        }
+
+        viewModel.currentPosition.observe(this) {
+            findNavController(R.id.nav_host_fragment).navigate(fragmentIds[it])
         }
     }
 }
