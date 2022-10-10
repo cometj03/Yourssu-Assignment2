@@ -1,6 +1,8 @@
 package com.cometj.yourssu_assignment
 
 import android.os.Bundle
+import android.text.Editable
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -29,7 +31,14 @@ class RegisterFragment1 : Fragment(R.layout.fragment_register1) {
         binding.btnNext.setOnClickListener {
             viewModel.goToNextPage()
         }
+        initView()
         return binding.root
+    }
+
+    private fun initView() {
+        binding.etEmail.text = Editable.Factory.getInstance().newEditable(
+            viewModel.email.value
+        )
     }
 
     override fun onDestroyView() {

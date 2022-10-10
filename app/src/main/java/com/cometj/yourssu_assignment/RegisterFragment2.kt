@@ -1,6 +1,7 @@
 package com.cometj.yourssu_assignment
 
 import android.os.Bundle
+import android.text.Editable
 import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -34,7 +35,14 @@ class RegisterFragment2 : Fragment(R.layout.fragment_register2) {
         binding.btnNext.setOnClickListener {
             viewModel.goToNextPage()
         }
+        initView()
         return binding.root
+    }
+
+    private fun initView() {
+        binding.etPassword.text = Editable.Factory.getInstance().newEditable(
+            viewModel.password.value
+        )
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
