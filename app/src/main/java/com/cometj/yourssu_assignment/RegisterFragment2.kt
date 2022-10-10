@@ -10,6 +10,7 @@ import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.cometj.yourssu_assignment.databinding.FragmentRegister2Binding
+import kotlinx.coroutines.FlowPreview
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.flow.debounce
 import kotlinx.coroutines.launch
@@ -41,6 +42,7 @@ class RegisterFragment2 : Fragment(R.layout.fragment_register2) {
         passwordDebounceSetting()
     }
 
+    @OptIn(FlowPreview::class)
     private fun passwordDebounceSetting() {
         val pwFlow = binding.etPassword.textChangeToFlow()
         viewLifecycleOwner.lifecycleScope.launch {

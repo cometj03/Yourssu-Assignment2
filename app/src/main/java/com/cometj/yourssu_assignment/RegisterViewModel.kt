@@ -2,6 +2,7 @@ package com.cometj.yourssu_assignment
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.Transformations
 import androidx.lifecycle.ViewModel
 import com.yourssu.design.undercarriage.base.TextField
 import java.util.regex.Pattern
@@ -9,10 +10,13 @@ import java.util.regex.Pattern
 class RegisterViewModel : ViewModel() {
 
     private val _currentPosition = MutableLiveData(0)
-    val currentPosition: LiveData<Int> = _currentPosition
+    val currentPosition: LiveData<Int> = Transformations.distinctUntilChanged(_currentPosition)
 
     fun goToNextPage() {
         _currentPosition.value = _currentPosition.value?.let { it + 1 }
+    }
+    fun goToPreviousPage() {
+        _currentPosition.value = _currentPosition.value?.let { it - 1 }
     }
     fun goToFirstPage() {
         _currentPosition.value = 0
